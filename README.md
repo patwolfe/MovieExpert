@@ -28,11 +28,16 @@ that issue.
 HTML, CSS, JavaScript (jQuery should be fine)
 
 3 pages (start and one for game one for leaderboard)
+
+
+Start
 - Start page just takes a username via text box. Idk how to pass this to
 the next page but shouldn't be too hard. We can put it in session storage
 or send it through the GET request in a query string. Since there's no password
 or anything it shouldn't be a big deal.
 
+
+Main
 - Main page will display all the info and have an input box for the user's guess
 Upon submitting their guess, the page will show the real score and how many
 points they got.
@@ -46,6 +51,8 @@ to guessing when they hit the next button (need to figure out how to have
   this button appear and disappear/become inactive hopefully that's easy in
   jQuery)
 
+
+Leaderboard
 - After the nth guess we can take the user to the leaderboard page. This will
 show their score and tell them if they made it to the leaderboard or not. Also
 will have a play again button
