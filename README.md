@@ -1,5 +1,18 @@
 # MovieScoreGuessing
 
+## To Paul how to run server locally
+- First do git pull to get the updates
+- Install mySQL and run the server locally (mysql workbench is a GUI for windows to make this easy)
+- You should be able to construct the database from the .sql file in the database folder (Look for an import/build option that takes a .sql file)
+- Make sure that's running locally
+
+
+- Then install everything from the imports in server.py via pip
+- in terminal: (PyCharm should have an equivalent, if not try using windows powershell)
+- type export FLASK_APP=server.py in the terminal while in the server folder
+- type flask run
+- go to http://localhost:5000/getRandomMovie on chrome
+- There should be a movie title, poster url, and metascore in JSON form displayed
 
 ## Preliminary Development Notes
 

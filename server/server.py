@@ -1,31 +1,39 @@
 from flask import Flask
 from flask import jsonify
-import tmdbsimple as tmdb
+import mysql.connector
 from requests.exceptions import HTTPError
 import random
-
-tmdb.API_KEY = '1c12a973351094b6ef09c2ab1f186f6e'
+import omdb
+omdb.set_default('apikey', 'd547fa41')
+omdb.set_default('tomatoes', True)
 
 app = Flask(__name__)
 
 @app.route('/getRandomMovie', methods=['GET'])
 def send_movie():
-	movie = None
-	votes = 0
-	response = None
-	while movie is None or votes < 250:
-		print("Looping")
-		try:
-			id = random.randrange(1, 450000)
-			movie = tmdb.Movies(id)
-			repsonse = movie.info()
-		except HTTPError:
-			print("httperror")
-			movie = None
-		else:
-			votes = movie.vote_count
-			print(votes)
-	return movie.title
 
+	movieName = "";
+
+	while(movieName == ""):
+		id = random.randrange(2, 2569)
+		cnx = mysql.connector.connect(user='root', password='Memory67',
+	                              host='127.0.0.1',
+	                              database='movieData')
+		cursor = cnx.cursor(dictionary=True)
+
+		query = ("SELECT * FROM movies WHERE table_id=%s")
+
+
+		cursor.execute(query, (id,))
+		for row in cursor:
+			movieName = row["title"]
+	cursor.close()
+	cnx.close()
+
+	response = omdb.get(title=movieName)
+	score = response["metascore"]
+	poster = response["poster"]
+	jsonresposne = '{"name":"' + movieName + '","poster":"' + poster + '","score":' + score +'}'  
+	return jsonresposne
 if __name__ == '__main__':
 	app.run(debug=True, use_reloader=True)
