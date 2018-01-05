@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Score Guessing Game!</title>
+  </head>
+  <body>
+    <h1>Guess the Movie Score!</h1>
+    <h4>Think you know movies well?<br /> Let's see how accurately you can determine the metacritic score for movies!</h4>
+    <p>Begin by typing your username in the textbox below, then click Submit:</p>
+    <p>
+      <label>Text box</label>
+      <input type = "text"
+             id = "username"
+             value = "username here" />
+    </p>
+    <button type = "submit" value = "submit">Submit</button>
+  </body>
+</html>
