@@ -2,17 +2,23 @@
 <html>
   <head>
     <title>Movie Score Guessing Game!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
     <h1>Guess the Movie Score!</h1>
-    <h4>Think you know movies well?<br /> Let's see how accurately you can determine the metacritic score for movies!</h4>
+    <h4 id = "heading">Think you know movies well?<br /> Let's see how accurately you can determine the Metacritic score for movies!</h4>
     <p>Begin by typing your username in the textbox below, then click Submit:</p>
     <p>
       <label>Text box</label>
       <input type = "text"
-             id = "username"
-             value = "username here" />
+             id = "username" />
     </p>
-    <button type = "submit" value = "submit">Submit</button>
+    <p id = "movieName"></p>
+    <p id = "movieScore"></p>
+    <img id = "poster"></img>
+    <button type = "submit" value = "submit" id="submitButton">Submit</button>
+    <p id="displayUsername"><p/>
   </body>
 </html>

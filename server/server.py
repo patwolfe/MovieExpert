@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask_cors  import CORS
 import mysql.connector
 from requests.exceptions import HTTPError
 import random
@@ -9,33 +10,42 @@ omdb.set_default('apikey', 'd547fa41')
 omdb.set_default('tomatoes', True)
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/getRandomMovie', methods=['GET'])
 def get_movie():
+	cnx = mysql.connector.connect(user='root', password='Memory67',
+									  host='127.0.0.1',
+									  database='movieData')
+	cursor = cnx.cursor(dictionary=True)
+	jsonresponse = '['
+	i = 0;
+	while i < 10:
+		movieName = "";
+		while(movieName == ""):
+			id = random.randrange(2, 2569)
 
-	movieName = "";
 
-	while(movieName == ""):
-		id = random.randrange(2, 2569)
-		cnx = mysql.connector.connect(user='root', password='Memory67',
-								  host='127.0.0.1',
-								  database='movieData')
-		cursor = cnx.cursor(dictionary=True)
-
-		query = ("SELECT * FROM movies WHERE table_id=%s")
+			query = ("SELECT * FROM movies WHERE table_id=%s")
 
 
-		cursor.execute(query, (id,))
-		for row in cursor:
-			movieName = row["title"]
+			cursor.execute(query, (id,))
+			for row in cursor:
+				movieName = row["title"]
+		response = omdb.get(title=movieName)
+		if "metascore" in response:
+			if response["metascore"] != "N/A":
+				score = response["metascore"]
+				poster = response["poster"]
+				movieInfo = '{"name":"' + movieName + '","poster":"' + poster + '","score":' + score +'}'
+				i += 1
+				jsonresponse += movieInfo;
+				if (i < 10):
+					jsonresponse += ','
 	cursor.close()
-	cnx.close()
-
-	response = omdb.get(title=movieName)
-	score = response["metascore"]
-	poster = response["poster"]
-	jsonresposne = '{"name":"' + movieName + '","poster":"' + poster + '","score":' + score +'}'  
-	return jsonresposne
+	cnx.close()	
+	jsonresponse += ']'
+	return jsonresponse
 
 
 
