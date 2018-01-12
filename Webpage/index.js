@@ -8,18 +8,44 @@ $(document).ready(function(){
     	data = JSON.parse(rawData);
     	console.log(data);
     	i = 0;
+    	j = 0;
     	$("#submitButton").click(function(){
-    		if(i >= 10) {
-    			console.log(i);
-    			$("#heading").text("done");
-    		}
-    		else {
+			if(j%2==0) {
     			console.log("here");
     			$("#poster").attr("src", data[i].poster);
     			$("#movieName").text(data[i].name);
-    			$("#movieScore").text(data[i].score);
-    			i++;
+    			$("#submitButton").text("Guess");
+    			$("#movieScore").hide();
+    			$("#guessedScore").hide();
     		}
+			else {
+				var guess = $("#input").val();
+				var intGuess = parseInt(guess);
+				if(guess == "" || guess > 100 || guess < 0) {
+					alert("Invalid guess");
+					j--;
+				}
+				else {
+					var intScore = parseInt(data[i].score);
+					var points = 100 - Math.abs(intScore - intGuess); 
+					if (i == 0) {
+						$("#points").text(points);
+					}
+					else {
+						var currPoints = parseInt($("#points").text());
+						currPoints += points;
+						$("#points").text(currPoints);
+					}
+					$("#guessedScore").text("Your guess: " + guess);
+					$("#movieScore").text("Metacritic Score: " + data[i].score);
+					i++;
+					$("#submitButton").text("Next");
+	    			$("#movieScore").show();
+	    			$("#guessedScore").show();
+	    		}
+			}
+			j++;
+		
     	});
     });
 });
