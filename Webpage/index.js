@@ -51,8 +51,19 @@ $(document).ready(function(){
 				$("#movieName").hide(); 
     			$("#guessedScore").hide();
     			$("#poster").hide();
+    			var totalPoints = parseInt($("#points").text());
     			resultString = "You scored " + $("#points").text() + " points";
     			$("#points").text(resultString);
+    			$("#finishButton").show();
+    			$("#input").val("");
+    			$("#input").attr("placeholder", "Enter your name here");
+    			$("#finishButton").click(function(){
+    				urlencoded = 'http://localhost:5000/sendScore'
+    				data = {"name": $("#input").val(), "score": totalPoints}
+    				$.post(urlencoded, data, function(){
+    					console.log("good");
+    				});
+    			});
 			}
 		
     	});
