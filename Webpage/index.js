@@ -45,6 +45,15 @@ $(document).ready(function(){
 	    		}
 			}
 			j++;
+			if(j==20) {
+				$("#submitButton").hide();
+				$("#movieScore").hide();
+				$("#movieName").hide(); 
+    			$("#guessedScore").hide();
+    			$("#poster").hide();
+    			resultString = "You scored " + $("#points").text() + " points";
+    			$("#points").text(resultString);
+			}
 		
     	});
     });
