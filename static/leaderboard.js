@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$.get("http://localhost:5000/getLeaderboard", function(rawData, status){
+	$.get("https://damp-depths-96034.herokuapp.com/getLeaderboard", function(rawData, status){
 	    response = JSON.parse(rawData);
 	    leaders = response.leaders;
 	    size = leaders.length;

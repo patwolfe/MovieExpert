@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask import render_template
 from flask_cors  import CORS
 import mysql.connector
 from requests.exceptions import HTTPError
@@ -12,16 +13,19 @@ omdb.set_default('tomatoes', True)
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def test():
+	return render_template('Startpage.html')
 @app.route('/getRandomMovie', methods=['GET'])
 def get_movie():
-	cnx = mysql.connector.connect(user='root', password='Memory67',
-									  host='127.0.0.1',
-									  database='movieData')
+	cnx = mysql.connector.connect(user='c8z9jjk15zhwew0t', password='ut66k8wmevtzgmur',
+									  host='qbct6vwi8q648mrn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',									 
+									  database='itpo6r2v2r37o2w2')
 	cursor = cnx.cursor(dictionary=True)
 	jsonresponse = '['
-	i = 0;
+	i = 0
 	while i < 10:
-		movieName = "";
+		movieName = ""
 		while(movieName == ""):
 			id = random.randrange(2, 2569)
 
@@ -52,9 +56,9 @@ def get_movie():
 @app.route('/getLeaderboard', methods=['GET'])
 def get_leaders():
 	leaders = '{"leaders": [' 
-	cnx = mysql.connector.connect(user='root', password='Memory67',
-							  host='127.0.0.1',
-							  database='movieData')
+	cnx = mysql.connector.connect(user='c8z9jjk15zhwew0t', password='ut66k8wmevtzgmur',
+									  host='qbct6vwi8q648mrn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+									  database='itpo6r2v2r37o2w2')
 	cursor = cnx.cursor(dictionary=True)
 
 	query = ("SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10")
@@ -74,9 +78,9 @@ def get_leaders():
 def send_score():
 	name = request.form.get('name')
 	score = request.form.get('score')
-	cnx = mysql.connector.connect(user='root', password='Memory67',
-							  host='127.0.0.1',
-							  database='movieData')
+	cnx = mysql.connector.connect(user='c8z9jjk15zhwew0t', password='ut66k8wmevtzgmur',
+									  host='qbct6vwi8q648mrn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+									  database='itpo6r2v2r37o2w2')
 	cursor = cnx.cursor(dictionary=True)
 	
 	user_data = (name, score)
