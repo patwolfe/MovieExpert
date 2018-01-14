@@ -1,13 +1,42 @@
 $(document).ready(function(){
+	$("#input").hide();
     $.get("https://damp-depths-96034.herokuapp.com/getRandomMovie",function(rawData, status) {
     	console.log(rawData);    	
     	data = JSON.parse(rawData);
     	console.log(data);
+     	$("#submitButton").show();
     	i = 0;
     	j = 0;
     	$("#submitButton").click(function(){
-			if(j%2==0) {
-    			console.log("here");
+			if(j==20) {
+				$("#submitButton").hide();
+				$("#movieScore").hide();
+				$("#movieName").hide(); 
+    			$("#guessedScore").hide();
+    			$("#poster").hide();
+    			$("#input").show();
+    			var totalPoints = parseInt($("#points").text());
+    			resultString = "You scored " + $("#points").text() + " points";
+    			$("#pointsText").text(resultString);
+    			$("#finishButton").show();
+    			$("#input").val("");
+    			$("#input").attr("placeholder", "Enter your name here");
+    			$("#finishButton").click(function(){
+    				urlencoded = 'https://damp-depths-96034.herokuapp.com/sendScore'
+    				data = {"name": $("#input").val(), "score": totalPoints}
+    				$.post(urlencoded, data, function(){
+    					$("#gotoLeaderboard").show();
+    					$("#submitButton").text("Play again!");
+    					$("#submitButton").click(){
+    						location.reload(); 
+    					}
+    				});
+    			});
+			}
+			else if(j%2==0) {
+				$("#explanation").text("Enter a guess within the range 0-100")
+    			$("#input").show();
+    			$("#input").val("");
     			$("#poster").attr("src", data[i].poster);
     			$("#movieName").text(data[i].name);
     			$("#submitButton").text("Guess");
@@ -35,33 +64,15 @@ $(document).ready(function(){
 					$("#guessedScore").text("Your guess: " + guess);
 					$("#movieScore").text("Metacritic Score: " + data[i].score);
 					i++;
+					$("#pointsText").text("Current points: " + $("#points").text());
 					$("#submitButton").text("Next");
 	    			$("#movieScore").show();
 	    			$("#guessedScore").show();
+	    			$("#pointsText").show();
+	    			$("#input").hide();
 	    		}
 			}
 			j++;
-			if(j==20) {
-				$("#submitButton").hide();
-				$("#movieScore").hide();
-				$("#movieName").hide(); 
-    			$("#guessedScore").hide();
-    			$("#poster").hide();
-    			var totalPoints = parseInt($("#points").text());
-    			resultString = "You scored " + $("#points").text() + " points";
-    			$("#points").text(resultString);
-    			$("#finishButton").show();
-    			$("#input").val("");
-    			$("#input").attr("placeholder", "Enter your name here");
-    			$("#finishButton").click(function(){
-    				urlencoded = 'https://damp-depths-96034.herokuapp.com/sendScore'
-    				data = {"name": $("#input").val(), "score": totalPoints}
-    				$.post(urlencoded, data, function(){
-    					console.log("good");
-    				});
-    			});
-			}
-		
     	});
     });
 });

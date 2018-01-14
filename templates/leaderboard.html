@@ -3,8 +3,8 @@
 <head>
 	<title>Leaderboard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="leaderboard.js"></script>
-    <link rel="stylesheet" type="text/css" href="leaderboard.css">
+    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='leaderboard.css')}}">
 </head>
 <body>
 <h2 id = "heading">Leaderboard</h2>
@@ -17,5 +17,8 @@
 		
 	</tbody>	
 </table>
+<form id = "playAgain">
+<button id = "returnButton">New Game</button>
+</form>
 </body>
 </html>

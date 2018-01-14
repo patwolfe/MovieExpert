@@ -4,26 +4,31 @@
     <title>Movie Score Guessing Game!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
+    <link rel="stylesheet" type="text/css" href="../static/index.css"<!-- {{url_for('static', filename='index.css')}}" -->>
   </head>
   <body>
     <h1>Guess the Movie Score!</h1>
     <h4 id = "heading">Think you know movies well?<br /> Let's see how accurately you can determine the Metacritic score for movies!</h4>
-    <p>Begin by typing your username in the textbox below, then click Submit:</p>
+    <p id = "explanation">Begin by pressing start</p>
     <p>
-      <label>Text box</label>
       <input type = "text"
-             id = "input" />
+             id = "input"/>
     </p>
-    <button id="submitButton">Start</button>
+    <button type="button" id="submitButton">Start</button>
     <p id = "movieName"></p>
     <p id = "movieScore"></p>
     <p id = "guessedScore"></p>
+    <p id="pointsText"></p>
     <p id="points"></p>
     <img id = "poster"></img>
     <p id="displayUsername"><p/>
     <form>
-    <button id="finishButton">Submit</button>
+    <button type="button" id="gotoLeaderboard">View Leaderboard</button>
     </form>
+
+    <div id = "bottomText">
+      <p>Created by TAPP Studios</p>
+      <p>Movie data from <a href="https://www.imdb.com">IMDB</a>, <a href="https://www.metacritic.com">Metacritic</a> and <a href="https://www.themoviedb.org/?language=en"> TMDB</a></p>
+    </div>
   </body>
 </html>

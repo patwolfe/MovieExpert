@@ -14,8 +14,12 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/', methods=['GET'])
-def test():
+def index():
 	return render_template('Startpage.html')
+
+@app.route('/leaderboard', methods=['GET'])
+def leaderboard():
+	return render_template('leaderboard.html')
 @app.route('/getRandomMovie', methods=['GET'])
 def get_movie():
 	cnx = mysql.connector.connect(user='c8z9jjk15zhwew0t', password='ut66k8wmevtzgmur',
