@@ -1,6 +1,24 @@
 #gotoLeaderboard{
 	display: none;
 }
+body{
+	background-image: url("https://thumbs.dreamstime.com/t/red-theater-seat-isolated-white-background-d-render-55285880.jpg");	
+}
+#title{
+	color: brown;
+	text-transform: uppercase;
+	font-family: cursive;
+	text-align: center;
+}
+#heading{
+	color: brown;
+	font-family: cursive;
+	text-align: center;
+}
+#explanation{
+	color: brown;
+	font-family: cursive;
+}
 #submitButton{
 	display: none;
 }
