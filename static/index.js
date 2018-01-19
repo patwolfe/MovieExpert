@@ -36,7 +36,7 @@ $(document).ready(function(){
 			else if(j%2==0) {
 				$("#explanation").text("Enter a guess within the range 0-100")
     			$("#input").show();
-    			$("#input").val("");
+    			$("#input").val(""); 
     			$("#poster").attr("src", data[i].poster);
     			$("#movieName").text(data[i].name);
     			$("#submitButton").text("Guess");
