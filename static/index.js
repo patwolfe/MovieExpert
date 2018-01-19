@@ -29,7 +29,7 @@ $(document).ready(function(){
     					$("#submitButton").text("Play again!");
     					$("#submitButton").click()
     						location.reload(); 
-    					}
+    					});
     				});
     			});
 			}
