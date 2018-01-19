@@ -27,9 +27,9 @@ $(document).ready(function(){
     				$.post(urlencoded, data, function(){
     					$("#gotoLeaderboard").show();
     					$("#submitButton").text("Play again!");
-    					$("#submitButton").click(){
+    					$("#submitButton").click(function(){
     						location.reload(); 
-    					}
+    					});
     				});
     			});
 			}
