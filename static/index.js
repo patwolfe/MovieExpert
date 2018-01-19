@@ -29,7 +29,7 @@ $(document).ready(function(){
     					$("#submitButton").text("Play again!");
     					$("#submitButton").click(){
     						location.reload(); 
-    					}
+    					});
     				});
     			});
 			}
@@ -42,7 +42,7 @@ $(document).ready(function(){
     			$("#submitButton").text("Guess");
     			$("#movieScore").hide();
     			$("#guessedScore").hide();
-    		}
+    			}
 			else {
 				var guess = $("#input").val();
 				var intGuess = parseInt(guess);
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	    			$("#guessedScore").show();
 	    			$("#pointsText").show();
 	    			$("#input").hide();
-	    		}
+	    			}
 			}
 			j++;
     	});
