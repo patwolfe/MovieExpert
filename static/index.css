@@ -8,6 +8,14 @@
 	font-family: cursive;
 	text-align: center;
 }
+body,html{
+	height: 100%
+	background-image: url("https://thumbs.dreamstime.com/t/red-theater-seat-isolated-white-background-d-render-55285880.jpg");
+	background-position: center;
+  	background-repeat: no-repeat;
+    	background-size: cover;
+}
+
 #heading{
 	color: brown;
 	font-family: cursive;
