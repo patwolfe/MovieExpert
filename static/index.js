@@ -8,7 +8,7 @@ $(document).ready(function(){
     	i = 0;
     	j = 0;
     	$("#submitButton").click(function(){
-		document.getElementById("explanation").style.color = 'red'; 
+		document.getElementById("explanation").style.color = 'brown'; 
 			if(j==20) {
 				$("#submitButton").hide();
 				$("#movieScore").hide();
