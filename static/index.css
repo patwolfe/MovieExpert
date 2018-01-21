@@ -18,12 +18,12 @@ body{
 }
 
 #heading{
-	color: gray;
+	color: cyan;
 	font-family: cursive;
 	text-align: center;
 }
 #explanation{
-	color: gray;
+	color: cyan;
 	font-family: cursive;
 }
 #submitButton{
