@@ -1,11 +1,6 @@
 #gotoLeaderboard{
 	display: none;
 }
-#sizing{
-	height: 200px;
-	width: 100px;
-	overflow: hidden;
-}
 #title{
 	color: brown; 
 	text-transform: uppercase;
