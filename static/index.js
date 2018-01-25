@@ -53,7 +53,7 @@ $(document).ready(function(){
 				}
 				else {
 					var intScore = parseInt(data[i].score);
-					var points = 100 - Math.trunc(10*Math.sqrt(Math.abs(intScore - intGuess))); 
+					var points = 100 - Math.trunc(Math.abs(intScore - intGuess)); 
 					if (i == 0) {
 						$("#points").text(points);
 					}
