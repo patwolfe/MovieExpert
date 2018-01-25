@@ -27,6 +27,7 @@ $(document).ready(function(){
     				data = {"name": $("#input").val(), "score": totalPoints}
     				$.post(urlencoded, data, function(){
     					$("#gotoLeaderboard").show();
+					$("#submitButton").show();
     					$("#submitButton").text("Play again!");
     					$("#submitButton").click(function(){
     						location.reload(); 
