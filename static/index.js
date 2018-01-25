@@ -8,8 +8,6 @@ $(document).ready(function(){
     	i = 0;
     	j = 0;
     	$("#submitButton").click(function(){
-		document.getElementById("explanation").style.color = 'brown'; 
-		document.getElementById("heading").style.color = 'brown'; 
 			if(j==20) {
 				$("#submitButton").hide();
 				$("#movieScore").hide();
@@ -24,6 +22,7 @@ $(document).ready(function(){
     			$("#input").val("");
     			$("#input").attr("placeholder", "Enter your name here");
     			$("#finishButton").click(function(){
+				$("#finishButton").hide();
     				urlencoded = 'https://damp-depths-96034.herokuapp.com/sendScore'
     				data = {"name": $("#input").val(), "score": totalPoints}
     				$.post(urlencoded, data, function(){
