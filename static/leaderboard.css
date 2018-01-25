@@ -5,11 +5,12 @@
 	text-align: center;
 }
 #leaderboard{
-  color: brown;
   font-family: cursive;
-	text-align: center;
+  margin: auto;
+  text-align: center;
 }
 .category{
+  color: brown;
   text-transform: uppercase;
 }
 body{
