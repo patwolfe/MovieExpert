@@ -47,7 +47,7 @@ $(document).ready(function(){
 			else {
 				var guess = $("#input").val();
 				var intGuess = parseInt(guess);
-				if(guess == "" || guess > 100 || guess < 0 || guess == "NaN") {
+				if(guess == "" || guess > 100 || guess < 0 || intGuess == "NaN") {
 					alert("Invalid guess");
 					j--;
 				}
