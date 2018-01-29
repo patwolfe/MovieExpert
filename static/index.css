@@ -4,6 +4,10 @@
 #finishButton{
 	display: none;	
 }
+#poster{
+	width: 400px;
+	height: 400px;
+}
 #input{
 	width:30px;	
 }	
