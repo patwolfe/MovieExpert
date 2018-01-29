@@ -9,9 +9,10 @@ $(document).ready(function(){
     	j = 0;
     	$("#submitButton").click(function(){
 			if(j==20) {
-				$("#submitButton").hide();
-				$("#movieScore").hide();
-				$("#movieName").hide(); 
+       			$("input").css("width", "140px");
+			$("#submitButton").hide();
+			$("#movieScore").hide();
+			$("#movieName").hide(); 
     			$("#guessedScore").hide();
     			$("#poster").hide();
     			$("#input").show();
@@ -29,21 +30,22 @@ $(document).ready(function(){
     					$("#gotoLeaderboard").show();
 					$("#submitButton").show();
     					$("#submitButton").text("Play again!");
-    					$("#submitButton").click(function(){
-    						location.reload(); 
-    					});
     				});
     			});
 			}
+			else if (j == 21) {
+    				window.location.reload(); 
+
+			}
 			else if(j%2==0) {
 				$("#explanation").text("Enter a guess within the range 0-100")
-    			$("#input").show();
-    			$("#input").val(""); 
-    			$("#poster").attr("src", data[i].poster);
-    			$("#movieName").text(data[i].name);
-    			$("#submitButton").text("Guess");
-    			$("#movieScore").hide();
-    			$("#guessedScore").hide();
+	    			$("#input").show();
+	    			$("#input").val(""); 
+	    			$("#poster").attr("src", data[i].poster);
+	    			$("#movieName").text(data[i].name);
+	    			$("#submitButton").text("Guess");
+	    			$("#movieScore").hide();
+	    			$("#guessedScore").hide();
     			}
 			else {
 				var guess = $("#input").val();
@@ -68,10 +70,10 @@ $(document).ready(function(){
 					i++;
 					$("#pointsText").text("Current points: " + $("#points").text());
 					$("#submitButton").text("Next");
-	    			$("#movieScore").show();
-	    			$("#guessedScore").show();
-	    			$("#pointsText").show();
-	    			$("#input").hide();
+		    			$("#movieScore").show();
+		    			$("#guessedScore").show();
+		    			$("#pointsText").show();
+		    			$("#input").hide();
 	    			}
 			}
 			j++;
