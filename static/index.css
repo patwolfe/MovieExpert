@@ -35,6 +35,7 @@
 }
 #heading{
 	text-position: right;
+	text-align: right;
 }
 body{
 	height: 100%;
