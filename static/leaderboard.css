@@ -21,3 +21,19 @@ body{
 	text-align: center;
 	background-attachment: fixed;
 }
+button {
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #7a5353);
+  background-image: -moz-linear-gradient(top, #d93434, #7a5353);
+  background-image: -ms-linear-gradient(top, #d93434, #7a5353);
+  background-image: -o-linear-gradient(top, #d93434, #7a5353);
+  background-image: linear-gradient(to bottom, #d93434, #7a5353);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
