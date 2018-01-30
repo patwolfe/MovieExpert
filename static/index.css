@@ -7,12 +7,13 @@
 .left{
 	position: absolute;
 	top: 10%;
-  	left: 10%;
+  	left: 15%;
   	width: 45%;
 }
 .right{
 	position: absolute;
-  	right: 0px;
+  	top 20px;
+	right: 0px;
   	width: 50%;	
 }	
 #poster{
