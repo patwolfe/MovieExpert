@@ -37,3 +37,10 @@ button {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
+.text{
+  color: brown;
+  font-family:Arial;
+  text-align: center; 
+  font-weight: bold;
+  font-size: 14px;
+}

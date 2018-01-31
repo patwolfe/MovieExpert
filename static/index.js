@@ -1,14 +1,12 @@
 $(document).ready(function(){
 	$("#input").hide();
     $.get("https://damp-depths-96034.herokuapp.com/getRandomMovie",function(rawData, status) {
-    	console.log(rawData);    	
     	data = JSON.parse(rawData);
-    	console.log(data);
      	$("#submitButton").show();
     	i = 0;
     	j = 0;
     	$("#submitButton").click(function(){
-		if(j==20) {
+		if(j==12) {
        			$("input").css("width", "140px");
 			$("#submitButton").hide();
 			$("#movieScore").hide();
@@ -33,7 +31,7 @@ $(document).ready(function(){
     				});
     			});
 		}
-		else if (j == 21) {
+		else if (j == 13) {
 			window.location.reload(); 
 		}
 		else if(j%2==0) {
