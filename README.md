@@ -1,6 +1,6 @@
 # MovieScoreGuessing
 
-# DEMO HERE
+# Demo
 
 https://movieexpert.herokuapp.com/
 
